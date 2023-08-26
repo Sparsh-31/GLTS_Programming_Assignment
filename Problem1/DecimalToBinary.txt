@@ -1,0 +1,39 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+// 1. Write a function to convert a decimal number string into binary string. For example, string A contains “123” which is decimal value 123. Convert this string into binary string.
+class Main{
+    public static void main(String[] args) {
+    	String decimalStr = "123.65";
+    	String binaryStr = decimalToBinary(decimalStr);
+        System.out.println("Decimal: " + decimalStr);
+        System.out.println("Binary: " + binaryStr);
+    }
+
+    public static String decimalToBinary(String decimalStr) {
+        double num = Double.parseDouble(decimalStr);
+    
+        int intValue = (int) num;
+        double decimalValue = num - intValue;
+    // Integer Part
+        StringBuilder intSB = new StringBuilder();
+        while (intValue > 0) {
+            int rem = intValue % 2;
+            intSB.insert(0, rem);
+            intValue /= 2;
+        }
+    // Decimal Part
+        StringBuilder decimalSB = new StringBuilder();
+        int maxFractionalDigits = 5; // Consider up to 5 fractional digits
+        while (decimalValue > 0 && decimalSB.length() < maxFractionalDigits) {
+            decimalValue *= 2;
+            int bit = (int) decimalValue;
+            decimalSB.append(bit);
+            decimalValue -= bit;
+            }
+    
+        return intSB.toString() + "." + decimalSB.toString();
+        
+    }
+    
+}
