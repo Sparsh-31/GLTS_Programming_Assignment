@@ -1,0 +1,35 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+// 5. Write a program to store the value in Hashmap (key, store) and then search those given value from the hashmap and print it. a. Name is key and age is value so store some sample values like i. (Ram, 36), (shyam,60)
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapProblem {
+    public static void main(String[] args) {
+        
+        Map<String, Integer> map = new HashMap<>();
+
+        map.put("Ram", 36);
+        map.put("Sparsh", 20);
+        
+        String target = "Sparsh";
+        
+        if(searchAvailableOrNot(map, "Ram")){
+            System.out.println("Target Name : "+target+"\n"+"Target Age : "+map.get(target));
+        }
+        else {
+            System.out.println("Target is not present");
+        }
+
+    }
+
+    public static boolean searchAvailableOrNot(Map<String, Integer> map, String key) {
+        if (map.containsKey(key)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
