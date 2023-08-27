@@ -1,0 +1,27 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+//Write a program that take the command line input and print all received inputs
+
+import java.util.Scanner;
+
+public class CommandLineInput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter inputs (type 'stop' to end):");
+        
+        while (true) {
+            String input = scanner.nextLine();
+            
+            if (input.equalsIgnoreCase("stop")) {
+                System.out.println("Stopping the program.");
+                break;
+            }
+            else if(input.equals("")) continue;
+            else {
+                System.out.println("Received input: " + input);
+            }
+        }
+        
+        scanner.close();
+    }
+}
