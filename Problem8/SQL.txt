@@ -1,0 +1,1 @@
+SELECT * FROM EMPLOYEES WHERE empAge < 30 AND empName LIKE ‘S%’;
